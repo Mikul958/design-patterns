@@ -1,9 +1,19 @@
 package strategy;
+
 import java.util.Random;
 
+/**
+ * A player's behavior while their behavior is set to run.
+ * @author Michael Pikula
+ */
 public class RunBehavior implements OffenseBehavior
 {
     Random r = new Random();
+
+    /**
+     * Creates a string that contains equally-likely messages while a player's behavior is set to run.
+     * @return A string describing the player's actions while running.
+     */
     public String play()
     {
         String endSentence = "uninit";
