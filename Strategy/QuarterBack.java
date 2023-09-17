@@ -25,7 +25,7 @@ public class QuarterBack extends Player
     public void setOffenseBehavior()
     {
         Random r = new Random();
-        int choice = r.nextInt(0, 2);
+        int choice = r.nextInt(2);
         if (choice == 0)
             this.offenseBehavior = new RunBehavior();
         else

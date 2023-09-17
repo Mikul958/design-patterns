@@ -33,7 +33,7 @@ public class Lineman extends Player
     public void setDefenseBehavior()
     {
         Random r = new Random();
-        int choice = r.nextInt(0, 3);
+        int choice = r.nextInt(3);
         if (choice == 0)
             this.defenseBehavior = new BlockBehavior();
         else if (choice == 1)

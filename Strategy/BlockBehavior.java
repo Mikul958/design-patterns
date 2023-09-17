@@ -17,7 +17,7 @@ public class BlockBehavior implements DefenseBehavior
     public String play()
     {
         String endSentence = "uninit";
-        int choice = r.nextInt(0, 4);
+        int choice = r.nextInt(4);
         switch(choice)
         {
             case 0:

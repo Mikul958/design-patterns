@@ -17,7 +17,7 @@ public class PassBehavior implements OffenseBehavior
     public String play()
     {
         String endSentence = "uninit";
-        int choice = r.nextInt(0, 5);
+        int choice = r.nextInt(5);
         switch(choice)
         {
             case 0:
