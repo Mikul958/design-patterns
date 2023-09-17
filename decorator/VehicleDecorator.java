@@ -2,13 +2,25 @@ package decorator;
 
 import java.util.ArrayList;
 
+/**
+ * A class used to handle the decoration of a vehicle.
+ * @author Michael Pikula
+ */
 public abstract class VehicleDecorator extends Vehicle
 {
+    /**
+     * Creates a vehicle decorator that uses the passed in ArrayList
+     * @param lines An ArrayList of type String containing lines read from a text file.
+     */
     public VehicleDecorator(ArrayList<String> lines)
     {
         super(lines);
     }
 
+    /**
+     * Replaces each character of the current vehicle's lines with the corresponding character of the passed-in ArrayList, provided it is not a space.
+     * @param decor The ArrayList to be integrated into the vehicle.
+     */
     protected void integrateDecor(ArrayList<String> decor)
     {
         // Outer for-loop, progress through this.lines and break if i is out of bounds of decor.

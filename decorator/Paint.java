@@ -1,7 +1,16 @@
 package decorator;
 
+/**
+ * A class created to change the color of the specified vehicle.
+ * @author Michael Pikula
+ */
 public class Paint extends VehicleDecorator
 {
+    /**
+     * Changes the color of the specified vehicle by adding a color value to the beginning of its first line.
+     * @param vehicle The vehicle to have its color changed.
+     * @param color The color that the vehicle will be changed to: accepts red, green, yellow, blue, purple, cyan, or none.
+     */
     public Paint(Vehicle vehicle, String color)
     {
         super(vehicle.lines);
