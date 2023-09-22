@@ -1,7 +1,14 @@
 package factory;
 
+/**
+ * A class representing a kids' bicycle.
+ * @author Michael Pikula
+ */
 public class KidsBike extends Bike
 {
+    /**
+     * Creates a bike with the type of "Kids Bike" and hard-coded attributes.
+     */
     public KidsBike()
     {
         this.name = "Kids Bike";
