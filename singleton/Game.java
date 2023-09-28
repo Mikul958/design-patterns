@@ -16,6 +16,7 @@ public class Game
     private Game()
     {
         rand = new Random();
+        level = Difficulty.EASY;
 
         // Make HashMap of difficulty levels and corresponding anagrams, and add all pairs to the HashMap.
         anagrams = new HashMap<Difficulty, ArrayList<Anagram>>();
@@ -33,26 +34,11 @@ public class Game
     }
     public String getQuestion()
     {
-        // Set the difficulty based on a random number between 0 and 3.
-        int temp = rand.nextInt(3);
-        switch(temp)
-        {
-            case 0:
-                level = Difficulty.EASY;
-                break;
-            case 1:
-                level = Difficulty.MEDIUM;
-                break;
-            case 2:
-                level = Difficulty.HARD;
-                break;
-        }
-
-        // Obtain ArrayList with anagrams of the new difficulty from HashMap.
+        // Obtain ArrayList with anagrams of the current difficulty from HashMap.
         ArrayList<Anagram> possibleAnagrams = anagrams.get(level);
 
-        // Make a random anagram from the ArrayList the new current anagram.
-        temp = rand.nextInt(possibleAnagrams.size());
+        // Take a random anagram from the ArrayList the new current anagram.
+        int temp = rand.nextInt(possibleAnagrams.size());
         currentAnagram = possibleAnagrams.get(temp);
 
         // Retrieve the question of the current anagram and return it.
@@ -60,12 +46,27 @@ public class Game
     }
     public boolean isCorrect(String userAnswer)
     {
+        // Determine if score is correct. Increase score if it is, decrease if not.
+        boolean correct = false;
         if (currentAnagram.isCorrect(userAnswer))
         {
             score++;
-            return true;
+            correct = true;
         }
-        return false;
+        else if (score > 0)
+        {
+            score--;
+        }
+
+        // Set new difficulty based on total score.
+        if (score <= 6)
+            level = Difficulty.EASY;
+        else if (score > 6 && score <= 10)
+            level = Difficulty.MEDIUM;
+        else
+            level = Difficulty.HARD;
+        
+        return correct;
     }
     public int getScore()
     {
