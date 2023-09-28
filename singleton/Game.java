@@ -15,8 +15,12 @@ public class Game
 
     private Game()
     {
-        // TODO i don't understand
         rand = new Random();
+
+        // Make HashMap of difficulty levels and corresponding anagrams, and add all pairs to the HashMap.
+        anagrams = new HashMap<Difficulty, ArrayList<Anagram>>();
+        for (Difficulty diff : Difficulty.values())
+            anagrams.put(diff, FileReader.getAnagrams(diff));
 
         score = 0;
     }
@@ -29,7 +33,29 @@ public class Game
     }
     public String getQuestion()
     {
-        // TODO not sure if i have to do more here.
+        // Set the difficulty based on a random number between 0 and 3.
+        int temp = rand.nextInt(3);
+        switch(temp)
+        {
+            case 0:
+                level = Difficulty.EASY;
+                break;
+            case 1:
+                level = Difficulty.MEDIUM;
+                break;
+            case 2:
+                level = Difficulty.HARD;
+                break;
+        }
+
+        // Obtain ArrayList with anagrams of the new difficulty from HashMap.
+        ArrayList<Anagram> possibleAnagrams = anagrams.get(level);
+
+        // Make a random anagram from the ArrayList the new current anagram.
+        temp = rand.nextInt(possibleAnagrams.size());
+        currentAnagram = possibleAnagrams.get(temp);
+
+        // Retrieve the question of the current anagram and return it.
         return currentAnagram.getQuestion();
     }
     public boolean isCorrect(String userAnswer)
