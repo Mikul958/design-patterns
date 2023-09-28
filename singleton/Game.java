@@ -4,6 +4,10 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * An anagram game. Only one instance of this class can be created.
+ * @author Michael Pikula
+ */
 public class Game
 {
     private static Game game;
@@ -13,6 +17,9 @@ public class Game
     private Anagram currentAnagram;
     private int score;
 
+    /**
+     * Creates a new anagram game.
+     */
     private Game()
     {
         rand = new Random();
@@ -26,12 +33,20 @@ public class Game
         score = 0;
     }
 
+    /**
+     * Retrieves the current instance of an anagram game, or makes a new one if there isn't one. Ensures only one anagram game can be created.
+     * @return The current anagram game.
+     */
     public static Game getInstance()
     {
         if (game == null)
             game = new Game();
         return game;
     }
+    /**
+     * Randomly selects an anagram from the list of anagrams associated with the current level of difficulty.
+     * @return The original string of letters for the generated anagram.
+     */
     public String getQuestion()
     {
         // Obtain ArrayList with anagrams of the current difficulty from HashMap.
@@ -44,6 +59,11 @@ public class Game
         // Retrieve the question of the current anagram and return it.
         return currentAnagram.getQuestion();
     }
+    /**
+     * Checks if the answer that the user entered for the current problem is correct and adjusts the score/difficulty accordingly.
+     * @param userAnswer The answer entered by the user.
+     * @return Whether or not the entered answer is correct.
+     */
     public boolean isCorrect(String userAnswer)
     {
         // Determine if score is correct. Increase score if it is, decrease if not.
@@ -68,6 +88,10 @@ public class Game
         
         return correct;
     }
+    /**
+     * Retrieves the user's score for the current game.
+     * @return The user's current score.
+     */
     public int getScore()
     {
         return score;
