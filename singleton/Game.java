@@ -29,8 +29,8 @@ public class Game
     }
     public String getQuestion()
     {
-        // TODO What do you even do here
-        return null;
+        // TODO not sure if i have to do more here.
+        return currentAnagram.getQuestion();
     }
     public boolean isCorrect(String userAnswer)
     {
