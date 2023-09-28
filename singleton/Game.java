@@ -16,24 +16,30 @@ public class Game
     private Game()
     {
         // TODO i don't understand
-        game = this;
         rand = new Random();
+
+        score = 0;
     }
 
     public static Game getInstance()
     {
         if (game == null)
-            return new Game();
+            game = new Game();
         return game;
     }
     public String getQuestion()
     {
-        // TODO What do you even do here.
+        // TODO What do you even do here
         return null;
     }
     public boolean isCorrect(String userAnswer)
     {
-        return currentAnagram.isCorrect(userAnswer);
+        if (currentAnagram.isCorrect(userAnswer))
+        {
+            score++;
+            return true;
+        }
+        return false;
     }
     public int getScore()
     {

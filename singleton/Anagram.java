@@ -15,8 +15,7 @@ public class Anagram
 
     public String getQuestion()
     {
-        // TODO I don't get it
-        return null;
+        return question;
     }
     public boolean isCorrect(String userAnswer)
     {
