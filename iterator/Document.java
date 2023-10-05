@@ -15,7 +15,7 @@ public class Document
         redoStack = new Stack<String>();
     }
 
-    public String makeChange(String change)     // TODO wipe redo list if it has stuff, or just leave it?
+    public String makeChange(String change)
     {
         undoStack.push(change);
         return "Making Change: " + change;

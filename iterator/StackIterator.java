@@ -1,9 +1,9 @@
 package iterator;
 
-import java.util.Iterator;  // TODO how do you implement this
+import java.util.Iterator;
 import java.util.Stack;
 
-public class StackIterator
+public class StackIterator implements Iterator<String>
 {
     private Stack<String> items;
     private int position;
@@ -17,10 +17,7 @@ public class StackIterator
     public String next()
     {
         if (!hasNext())
-        {
-            position = 0;   // Reset position pointer to top of stack.
             return null;
-        }
         return items.get(position++);   // Return item at index position, then increment position.
     }
     public boolean hasNext()
