@@ -13,8 +13,6 @@ public class Document
         this.title = title;
         undoStack = new Stack<String>();
         redoStack = new Stack<String>();
-        this.getUndoIterator();
-        this.getRedoIterator();
     }
 
     public String makeChange(String change)     // TODO wipe redo list if it has stuff, or just leave it?
